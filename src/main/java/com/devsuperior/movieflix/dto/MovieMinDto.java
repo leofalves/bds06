@@ -7,6 +7,7 @@ import com.devsuperior.movieflix.entities.Movie;
 public class MovieMinDto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private Long id;
 	private String title;
 	private String subTitle;
 	private Integer year;
@@ -15,7 +16,8 @@ public class MovieMinDto implements Serializable{
 	public MovieMinDto() {
 	}
 
-	public MovieMinDto(String title, String subTitle, Integer year, String imgUrl) {
+	public MovieMinDto(Long id, String title, String subTitle, Integer year, String imgUrl) {
+		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
@@ -23,6 +25,7 @@ public class MovieMinDto implements Serializable{
 	}
 	
 	public MovieMinDto(Movie entity) {
+		id = entity.getId();
 		title = entity.getTitle();
 		subTitle = entity.getSubTitle();
 		year = entity.getYear();
@@ -60,4 +63,13 @@ public class MovieMinDto implements Serializable{
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }
