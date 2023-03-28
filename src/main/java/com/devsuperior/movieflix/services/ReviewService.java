@@ -37,6 +37,7 @@ public class ReviewService {
 		
 		review = repository.save(review);
 		
+		review.setUser(user);
 		return new ReviewDTO(review);
 		
 	}
